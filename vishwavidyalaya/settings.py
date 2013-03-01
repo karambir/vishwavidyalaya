@@ -1,6 +1,6 @@
 import os
 
-PROJECT_ROOT = os.path.normpath(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -22,14 +22,12 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    '',
 )
 
 LOCAL_APPS = (
-    '',
 )
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS _LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 DATABASES = {
     'default': {

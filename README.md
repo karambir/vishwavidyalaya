@@ -3,7 +3,7 @@
 
 ----
 
-Vishwavidyalaya is ana Open Source College management Solution aimed at simplifying managing student and faculty records. This project aims at implementing following features:
+Vishwavidyalaya is an Open Source College management Solution aimed at simplifying managing student and faculty records. Initially we aim at implementing following features:
 
 + Adding information about faculty.
 + Assigning Subjects to faculties by their Coordinators.
@@ -11,14 +11,16 @@ Vishwavidyalaya is ana Open Source College management Solution aimed at simplify
 + Faculty can update students attendance and marks per Semester.
 + Assigning Mentors to Students.
 
-----
 
-##Contributors
+##Authors
 
 + [Karambir Singh Nain](http://nainomics.in/)
 + [Mayank Jain](http://mayank-jain.in/)
+
+##Contributors
+
 + Aditya Yadav
-+ Mohammad Adil
++ [Mohammad Adil](http://madil.in/)
 
 ##License
 
