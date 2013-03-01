@@ -18,13 +18,17 @@ DJANGO_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
 )
 
 THIRD_PARTY_APPS = (
+    'south',
 )
 
 LOCAL_APPS = (
+    'profiles',
+    'academics',
+    'mentors',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
