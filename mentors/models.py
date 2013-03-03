@@ -1,5 +1,5 @@
 from django.db import models
-from profiles.models import Faculty
+from profiles.models import Faculty, Student
 from academics.models import Section
 
 GROUP_CHOICES = (
@@ -14,3 +14,12 @@ class Mentor(models.Model):
 
     def __unicode__(self):
         return '%s - %s - %s' %(self.faculty, self.section, self.group)
+
+class MenteeMeeting(models.Model):
+    mentor = models.ForeignKey(Mentor)
+    student = models.ForeignKey(Student)
+    date = models.DateField()
+    remarks = models.TextField(null=True, blank=True)
+
+    def __unicode__(self):
+        return '%s - %s on %s' %(self.mentor.faculty.user.first_name, self.student.first_name, self.date)

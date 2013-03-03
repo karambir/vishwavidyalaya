@@ -1,6 +1,5 @@
 from django.db import models
-#from profiles.models import Faculty
-
+#from profiles.models import Faculty, Student
 
 
 class Course(models.Model):
