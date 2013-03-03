@@ -16,20 +16,19 @@
         .content {
             margin-bottom: 60px;
         }
+        .footer {
+            padding: 100px 0;
+        }
     </style>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
 {% block body %}
-{% endblock %}
-{% block extra_js %}{% endblock %}
-</body>
-</html>
 <div class="container">
 <div class="header">
-    <h1>Vishwavidyalaya</h1>
-    <p class="lead">College Management Solution</p>
-    <div class="row">
+    <h1>Amity University Haryana</h1>
+    <p class="lead">Computer Science Dept</p>
+    <div class="row clearfix">
         <ul class="nav nav-tabs">
             <li><a href="/">Home</a></li>
             {% if user.is_authenticated %}
@@ -49,27 +48,51 @@
 <div class="content">
     {% block content %}
     <div class="hero-unit">
-        <h1>Welcome to Vishwavidyalaya</h1>
-        <p class="lead">Vishwavidyalaya is an open-source project aimed at simplifying student and faculty records.</p>
+        <h1>Welcome to CSE Dept home</h1>
+        <p class="lead">Manage all student records at one place</p>
         <a href="#" class="btn btn-large btn-primary">Learn More</a>
     </div>
     <div class="row">
         <div class="span4">
-            <h3>Idea 1</h3>
-            <p>Hey this is just a snippet. Not showing anything.</p>
-            <a href="#" class="btn">More</a>
+            <h3>Mentor System</h3>
+            <p>Manage your mentees details and all meetings here.</p>
+            <a href="/mentee/" class="btn">Check Out</a>
         </div>
         <div class="span4">
-            <h3>Idea 2</h3>
-            <p>Hey this is just a snippet. Not showing anything.</p>
-            <a href="#" class="btn">More</a>
+            <h3>Attendance</h3>
+            <p>Update your students' attendance here</p>
+            <a href="/academics/attendance/" class="btn">Check Out</a>
         </div>
         <div class="span4">
-            <h3>Idea 3</h3>
-            <p>Hey this is just a snippet. Not showing anything.</p>
-            <a href="#" class="btn">More</a>
+            <h3>Marks</h3>
+            <p>Manage and update all the internal marks.</p>
+            <a href="/academics/marks/" class="btn">Check Out</a>
         </div>
     </div>
     {% endblock %}
 </div>
+<div class="footer">
+    <div class="span3">
+        <ul class="unstyled">
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">dev team</a></li>
+        </ul>
+    </div>
+    <div class="span5">
+        <p>This project is powered by Django and Python.</p>
+        <p>Made by <a href="http://codesters.org/">Codesters</a></p>
+    </div>
+    <div class="span3 pull-right">
+        <ul class="unstyled">
+            <li><a href="#">amizone</a></li>
+            <li><a href="#">amity.edu</a></li>
+            <li><a href="#">amity gurgaon</a></li>
+        </ul>
+    </div>
 </div>
+</div>
+{% endblock %}
+{% block extra_js %}{% endblock %}
+</body>
+</html>

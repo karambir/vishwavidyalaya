@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head_title %}Mentee Meeting{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>Mentee Meeting</h2>
+    <a href="/mentee/" class="btn btn-success pull-right">Mentee Records</a>
+</div>
+<div class="row">
+    <div class="span6 offset3">
+    <form method="post", action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+</div>
+</div>
+{% endblock %}
