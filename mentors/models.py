@@ -21,5 +21,10 @@ class MenteeMeeting(models.Model):
     date = models.DateField()
     remarks = models.TextField(null=True, blank=True)
 
+    class Meta:
+        permissions = (
+                ('view_menteemeeting', 'Can view Meeting'),
+                )
+
     def __unicode__(self):
         return '%s - %s on %s' %(self.mentor.faculty.user.first_name, self.student.first_name, self.date)

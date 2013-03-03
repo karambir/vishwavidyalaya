@@ -3,6 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block head_title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" media="screen">
+
+    <style>
+        body {
+            margin-top: 10px;
+        }
+        .header {
+            margin-bottom: 30px;
+        }
+        .content {
+            margin-bottom: 60px;
+        }
+    </style>
     {% block extra_head %}{% endblock %}
 </head>
 <body>
@@ -11,3 +25,47 @@
 {% block extra_js %}{% endblock %}
 </body>
 </html>
+<div class="container">
+<div class="header">
+    <h1>Vishwavidyalaya</h1>
+    <p class="lead">College Management Solution</p>
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li><a href="/">Home</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/accounts/profile/">Profile</a></li>
+            <li><a href="/accounts/password/change/">Change Password</a></li>
+            <li class="pull-right"><a href="/accounts/logout/">Logout</a></li>
+            {% else %}
+            <li class="pull-right"><a href="/accounts/login/">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+<div class="content">
+    {% block content %}
+    <div class="hero-unit">
+        <h1>Welcome to Vishwavidyalaya</h1>
+        <p class="lead">Vishwavidyalaya is an open-source project aimed at simplifying student and faculty records.</p>
+        <a href="#" class="btn btn-large btn-primary">Learn More</a>
+    </div>
+    <div class="row">
+        <div class="span4">
+            <h3>Idea 1</h3>
+            <p>Hey this is just a snippet. Not showing anything.</p>
+            <a href="#" class="btn">More</a>
+        </div>
+        <div class="span4">
+            <h3>Idea 2</h3>
+            <p>Hey this is just a snippet. Not showing anything.</p>
+            <a href="#" class="btn">More</a>
+        </div>
+        <div class="span4">
+            <h3>Idea 3</h3>
+            <p>Hey this is just a snippet. Not showing anything.</p>
+            <a href="#" class="btn">More</a>
+        </div>
+    </div>
+    {% endblock %}
+</div>
+</div>

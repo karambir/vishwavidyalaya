@@ -34,6 +34,11 @@ class Teach(models.Model):
     subject = models.ForeignKey(Subject)
     status = models.CharField(max_length = 15, choices = SUBJECT_STATUS)
 
+    class Meta:
+        permissions = (
+                ('view_teach', 'Can view Teachings'),
+                )
+
     def __unicode__(self):
         return '%s teaches %s to %s class' %(self.faculty, self.subject, self.section)
 
@@ -45,6 +50,11 @@ class Performance(models.Model):
     quiz = models.IntegerField(default=0)
     attendance = models.IntegerField(default=0)
     total_attendance = models.IntegerField(default=0)
+
+    class Meta:
+        permissions = (
+                ('view_performance', 'Can view Performance'),
+                )
 
     def __unicode__(self):
         return '%s %s' %(self.student, self.subject)
