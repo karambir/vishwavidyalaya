@@ -6,7 +6,7 @@ class FacultyAdmin(admin.ModelAdmin):
     list_editable = ['sex']
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('enrolment_number', 'name', 'course')
+    list_display = ('enrolment_number', 'name', 'course', 'section')
     search_fields = ['name', 'email', 'form_number', 'enrolment_number']
 
 admin.site.register(Faculty, FacultyAdmin)

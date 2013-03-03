@@ -1,4 +1,7 @@
 from django.db import models
+#from profiles.models import Faculty
+
+
 
 class Course(models.Model):
     name = models.CharField(max_length=50)
@@ -20,3 +23,18 @@ class Section(models.Model):
 
     def __unicode__(self):
         return self.name
+
+SUBJECT_STATUS = (
+        ('Compulsory', 'Compulsory'),
+        ('Optional', 'Optional'),
+)
+
+class Teach(models.Model):
+    faculty = models.ForeignKey('profiles.Faculty')
+    section = models.ForeignKey(Section)
+    subject = models.ForeignKey(Subject)
+    status = models.CharField(max_length = 15, choices = SUBJECT_STATUS)
+
+    def __unicode__(self):
+        return '%s teaches %s to %s class' %(self.faculty, self.subject, self.section)
+
