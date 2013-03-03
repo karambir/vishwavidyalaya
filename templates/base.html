@@ -33,9 +33,13 @@
         <ul class="nav nav-tabs">
             <li><a href="/">Home</a></li>
             {% if user.is_authenticated %}
+            <li><a href="/mentee/">Mantee Records</a></li>
+            <li><a href="/academics/marks/">Marks</a></li>
+            <li><a href="/academics/attendance/">Attendance</a></li>
             <li><a href="/accounts/profile/">Profile</a></li>
             <li><a href="/accounts/password/change/">Change Password</a></li>
             <li class="pull-right"><a href="/accounts/logout/">Logout</a></li>
+            <li class="pull-right"><a href="/admin/">Admin</a></li>
             {% else %}
             <li class="pull-right"><a href="/accounts/login/">Login</a></li>
             {% endif %}

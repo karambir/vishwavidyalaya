@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <h2>Students Marks</h2>
+    <div class="row">
+        <div class="span6 offset4">
+            <form>
+            <select>
+                <option>CSE</option>
+                <option>CSE/IT</option>
+                <option>BCA</option>
+            </select>
+            <a class="btn btn-success">Go</a>
+        </form>
+        </div>
+    </div>
+</div>
+<table class="table table-striped table-hover table-hovered">
+    <thead>
+        <tr>
+            <th>Enrolment Number</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Sessional 1</th>
+            <th>Sessional 2</th>
+            <th>Quiz/Assignment</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for marks in marks_list %}
+    <tr>
+        <td>{{ marks.student.enrolment_number }}</td>
+        <td>{{ marks.student.first_name }} {{ marks.student.last_name }}</td>
+        <td>{{ marks.student.section }}</td>
+        <td>{{ marks.sessional1 }}</td>
+        <td>{{ marks.sessional2 }}</td>
+        <td>{{ marks.quiz }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
