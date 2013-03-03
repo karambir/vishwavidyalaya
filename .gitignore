@@ -1,4 +1,4 @@
 *.pyc
 vishwavidyalaya/local_settings.py
-test.db
+*.db
 *.swp
