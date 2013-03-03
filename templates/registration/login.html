@@ -2,6 +2,7 @@
 {% block title %}Login{% endblock %}
 {% block content %}
 
+<div class="span6 offset3">
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -17,10 +18,11 @@
     <td>{{ form.password }}</td>
 </tr>
 </table>
-<p><a href="{% url auth_password_reset %}">Forgot</a> your password?  <a href="{% url registration_register %}">Need an account</a>?</p>
+<p><a class="btn btn-small" href="{% url auth_password_reset %}">Forgot your password?</a> <a class="btn btn-success btn-small" href="{% url registration_register %}">Need an account?</a></p>
 
-<input type="submit" value="login" />
+<input class="btn btn-primary" type="submit" value="Login" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
+</div>
 
 {% endblock %}

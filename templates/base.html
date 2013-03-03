@@ -40,12 +40,13 @@
             <li class="pull-right"><a href="/accounts/logout/">Logout</a></li>
             <li class="pull-right"><a href="/admin/">Admin</a></li>
             {% else %}
+            <li class="pull-right"><a href="/accounts/register/">Register</a></li>
             <li class="pull-right"><a href="/accounts/login/">Login</a></li>
             {% endif %}
         </ul>
     </div>
 </div>
-<div class="content">
+<div class="row content">
     {% block content %}
     <div class="hero-unit">
         <h1>Welcome to CSE Dept home</h1>
