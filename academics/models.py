@@ -37,3 +37,14 @@ class Teach(models.Model):
     def __unicode__(self):
         return '%s teaches %s to %s class' %(self.faculty, self.subject, self.section)
 
+class Performance(models.Model):
+    student = models.ForeignKey('profiles.Student')
+    subject = models.ForeignKey(Subject)
+    sessional1 = models.IntegerField(default=0)
+    sessional2 = models.IntegerField(default=0)
+    quiz = models.IntegerField(default=0)
+    attendance = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __unicode__(self):
+        return '%s %s' %(self.student, self.subject)
+

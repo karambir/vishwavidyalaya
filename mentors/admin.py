@@ -5,5 +5,8 @@ class MentorAdmin(admin.ModelAdmin):
     list_display = ('faculty', 'section', 'group')
     search_fields = ['faculty', 'section']
 
+class MenteeMeetingAdmin(admin.ModelAdmin):
+    list_display = ('mentor', 'student', 'date')
+
 admin.site.register(Mentor, MentorAdmin)
-admin.site.register(MenteeMeeting)
+admin.site.register(MenteeMeeting, MenteeMeetingAdmin)
