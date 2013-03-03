@@ -43,7 +43,8 @@ class Performance(models.Model):
     sessional1 = models.IntegerField(default=0)
     sessional2 = models.IntegerField(default=0)
     quiz = models.IntegerField(default=0)
-    attendance = models.DecimalField(max_digits=5, decimal_places=2)
+    attendance = models.IntegerField(default=0)
+    total_attendance = models.IntegerField(default=0)
 
     def __unicode__(self):
         return '%s %s' %(self.student, self.subject)
