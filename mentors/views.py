@@ -14,7 +14,13 @@ class MenteeRecordsListView(ListView):
     template_name = 'mentee_record_list.html'
     model = Student
 
+class MenteeMeetingListView(ListView):
+    context_object_name = 'meeting_list'
+    template_name = 'meeting_list.html'
+    model = MenteeMeeting
+
 class MenteeMeetingCreateView(CreateView):
     model = MenteeMeeting
     template_name = 'mentee_meeting_create.html'
+    success_url = '/mentee/meetings/'
 
