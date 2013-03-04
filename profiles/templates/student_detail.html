@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head_title %}Student{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{ student.get_full_name }}</h2>
+    <a href="/profiles/student/new/" class="btn btn-success pull-right">Add new Student</a>
+</div>
+<div class="row well">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Enrolment Number</dt>
+            <dd>{{ student.enrolment_number }}</dd>
+            <dt>Name</dt>
+            <dd>{{ student.get_full_name }}</dd>
+            <dt>Course</dt>
+            <dd>{{ student.course }}</dd>
+            <dt>Section - Group</dt>
+            <dd>{{ student.section }} - {{ student.group }}</dd>
+            {% if student.email %}
+            <dt>Email</dt>
+            <dd>{{ student.email }}</dd>
+            {% endif %}
+            {% if student.phone %}
+            <dt>Phone</dt>
+            <dd>{{ student.phone }}</dd>
+            {% endif %}
+        </dl>
+    </div>
+</div>
+{% endblock %}

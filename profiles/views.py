@@ -21,5 +21,12 @@ class FacultyDetailView(DetailView):
 class FacultyCreateView(CreateView):
     model = Faculty
     template_name = 'faculty_create.html'
-    success_url = '/'
 
+class StudentDetailView(DetailView):
+    context_object_name = 'student'
+    template_name = 'student_detail.html'
+    model = Student
+
+class StudentCreateView(CreateView):
+    model = Student
+    template_name = 'student_create.html'

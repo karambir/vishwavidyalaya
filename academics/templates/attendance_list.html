@@ -26,6 +26,7 @@
             <th>Group</th>
             <th>Attendance</th>
             <th>Total Attendance</th>
+            <th>% Attendance</th>
         </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@
         <td>{{ attendance.student.group }}</td>
         <td>{{ attendance.attendance }}</td>
         <td>{{ attendance.total_attendance }}</td>
+        <td>{{ attendance.get_attendance }}</td>
     </tr>
     {% endfor %}
 </table>

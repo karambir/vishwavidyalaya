@@ -4,7 +4,7 @@
 {% block content %}
 <div class="row">
     <h2>Faculty</h2>
-    <a href="/faculty/new/" class="btn btn-success pull-right">Add new Faculty</a>
+    <a href="/profiles/faculty/new/" class="btn btn-success pull-right">Add new Faculty</a>
 </div>
 <table class="table table-striped table-hover">
     <thead>
@@ -18,7 +18,7 @@
         {% for faculty in faculty_list %}
         <tr>
             <td>{{ faculty.empID }}</td>
-            <td><a href="/faculty/{{ faculty.id }}/">{{ faculty.user.get_full_name }}</a></td>
+            <td><a href="/profiles/faculty/{{ faculty.id }}/">{{ faculty.user.get_full_name }}</a></td>
             <td>{{ faculty.designation }}</td>
         </tr>
         {% endfor %}

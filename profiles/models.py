@@ -79,5 +79,11 @@ class Student(models.Model):
                 ('view_student', 'Can View Student Profile'),
                 )
 
+    def get_full_name(self):
+        return self.first_name+' '+self.last_name
+
+    def get_absolute_url(self):
+        return reverse('student_detail', kwargs={'pk': self.id})
+
     def __unicode__(self):
         return '%s %s' %(self.first_name, self.last_name)
