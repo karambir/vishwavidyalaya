@@ -22,6 +22,11 @@ Vishwavidyalaya is an Open Source College management Solution aimed at simplifyi
 + Aditya Yadav
 + [Mohammad Adil](http://madil.in/)
 
+##Supportors
+
++ Mrs. Chaaru Jain
++ Mr. Jasmeet Singh
+
 ##License
 
 This project is licensed under [MIT License](http://opensource.org/licenses/MIT/)

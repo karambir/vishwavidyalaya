@@ -24,30 +24,24 @@ MARITAL_STATUS = (
         ('Married', 'Married'),
 )
 
-class Address(models.Model):
-    street = models.CharField(max_length=350, blank=True, null=True)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=30)
-    pincode = models.IntegerField(null=True, blank=True)
-
-    def __unicode__(self):
-        return '%s - %s - %s' %(self.street, self.city, self.state)
-
 class Faculty(models.Model):
-    empID = models.IntegerField(unique=True)
+    empID = models.IntegerField(null=True, blank=True)
     user = models.ForeignKey(User)
     sex = models.CharField(max_length=1, choices=SEX_CHOICES)
     designation = models.CharField(max_length=50)
-    is_admin = models.BooleanField(default=False)
     qualification = models.CharField(max_length=300, blank=True, null=True)
-    experience = models.PositiveIntegerField(default=0)
+    experience = models.PositiveIntegerField(default=0, help_text='in years')
     school = models.CharField(max_length=300)
     marital_status = models.CharField(max_length=30, choices=MARITAL_STATUS)
     phone = models.BigIntegerField(null=True, blank=True)
-    alternate_phone = models.BigIntegerField(null=True, blank=True)
-    permanent_address = models.ForeignKey(Address, related_name='permanent_address', blank=True, null=True)
-    correspondence_address = models.ForeignKey(Address, related_name='correspondence_address', blank=True, null=True)
     description = models.TextField(blank=True, default='')
+    alternate_phone = models.BigIntegerField(null=True, blank=True)
+    address_street = models.CharField(max_length=350, blank=True, null=True)
+    address_city = models.CharField(max_length=100, null=True, blank=True)
+    address_state = models.CharField(max_length=30, null=True, blank=True)
+    address_pincode = models.IntegerField(null=True, blank=True)
+    is_admin = models.BooleanField(default=False)
+    is_mentor = models.BooleanField(default=False)
 
 
     def get_absolute_url(self):
@@ -74,8 +68,16 @@ class Student(models.Model):
     course = models.ForeignKey(Course)
     section = models.ForeignKey(Section)
     group = models.IntegerField(max_length=1, choices=GROUP_CHOICES, null=True, blank=True)
-    address = models.ForeignKey(Address, related_name='student_address', blank=True, null=True)
     subjects = models.ManyToManyField(Subject, null=True, blank=True)
+    address_street = models.CharField(max_length=350, blank=True, null=True)
+    address_city = models.CharField(max_length=100, null=True, blank=True)
+    address_state = models.CharField(max_length=30, null=True, blank=True)
+    address_pincode = models.IntegerField(null=True, blank=True)
+
+    class Meta:
+        permissions = (
+                ('view_student', 'Can View Student Profile'),
+                )
 
     def __unicode__(self):
         return '%s %s' %(self.first_name, self.last_name)

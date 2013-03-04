@@ -56,6 +56,9 @@ class Performance(models.Model):
                 ('view_performance', 'Can view Performance'),
                 )
 
+    def get_attendance(self):
+        return (int(self.attendance)/int(self.total_attendance))*100
+
     def __unicode__(self):
         return '%s %s' %(self.student, self.subject)
 
