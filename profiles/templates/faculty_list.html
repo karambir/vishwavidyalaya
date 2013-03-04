@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head_title %}Faculty{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>Faculty</h2>
+    <a href="/faculty/new/" class="btn btn-success pull-right">Add new Faculty</a>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for faculty in faculty_list %}
+        <tr>
+            <td>{{ faculty.empID }}</td>
+            <td><a href="/faculty/{{ faculty.id }}/">{{ faculty.user.get_full_name }}</a></td>
+            <td>{{ faculty.designation }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -4,12 +4,12 @@
 {% block content %}
 <div class="row">
     <h2>Mentee Meeting</h2>
+    <a href="/mentee/" class="btn btn-primary pull-left">Mentee Records</a>
     <a href="/mentee/meetings/" class="btn btn-success pull-right">Mentee Meetings</a>
-    <a href="/mentee/" class="btn btn-success pull-left">Mentee Records</a>
 </div>
 <div class="row">
     <div class="span6 offset3">
-    <form method="post", action="">
+    <form method="post" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn btn-primary" type="submit">Save</button>

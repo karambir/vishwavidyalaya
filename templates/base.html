@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block head_title %}{% endblock %}</title>
+    <title>{% block head_title %}Amity University - CSE Dept{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" media="screen">
 
@@ -32,9 +32,10 @@
         <ul class="nav nav-tabs">
             <li><a href="/">Home</a></li>
             {% if user.is_authenticated %}
-            <li><a href="/mentee/">Mantee Records</a></li>
+            <li><a href="/mentee/">Mentee Records</a></li>
             <li><a href="/academics/marks/">Marks</a></li>
             <li><a href="/academics/attendance/">Attendance</a></li>
+            <li><a href="/faculty/">Faculty</a></li>
             <li><a href="/accounts/profile/">Profile</a></li>
             <li><a href="/accounts/password/change/">Change Password</a></li>
             <li class="pull-right"><a href="/accounts/logout/">Logout</a></li>
@@ -51,7 +52,7 @@
     <div class="hero-unit">
         <h1>Welcome to CSE Dept home</h1>
         <p class="lead">Manage all student records at one place</p>
-        <a href="#" class="btn btn-large btn-primary">Learn More</a>
+        <a href="/accounts/login/" class="btn btn-large btn-primary">Login Now</a>
     </div>
     <div class="row">
         <div class="span4">
@@ -77,7 +78,7 @@
         <ul class="unstyled">
             <li><a href="#">about</a></li>
             <li><a href="#">contact</a></li>
-            <li><a href="#">dev team</a></li>
+            <li><a href="http://codesters.org">dev team</a></li>
         </ul>
     </div>
     <div class="span5">
@@ -86,9 +87,9 @@
     </div>
     <div class="span3 pull-right">
         <ul class="unstyled">
-            <li><a href="#">amizone</a></li>
-            <li><a href="#">amity.edu</a></li>
-            <li><a href="#">amity gurgaon</a></li>
+            <li><a href="http://amizone.net/">amizone</a></li>
+            <li><a href="http://amity.edu/">amity.edu</a></li>
+            <li><a href="http://amity.edu/gurgaon/">amity gurgaon</a></li>
         </ul>
     </div>
 </div>

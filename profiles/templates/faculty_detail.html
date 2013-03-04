@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head_title %}Faculty{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{ faculty.user.get_full_name }}</h2>
+    <a href="/faculty/" class="btn btn-primary pull-left">Back</a>
+    <a href="/faculty/new/" class="btn btn-success pull-right">Add new Faculty</a>
+</div>
+<div class="row well">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Emp ID</dt>
+            <dd>{{ faculty.empID }}</dd>
+            <dt>Name</dt>
+            <dd>{{ faculty.user.get_full_name }}</dd>
+            <dt>Designation</dt>
+            <dd>{{ faculty.designation }}</dd>
+            <dt>Qualification</dt>
+            <dd>{{ faculty.qualification }}</dd>
+            <dt>Experience</dt>
+            <dd>{{ faculty.experience }}</dd>
+            {% if faculty.phone %}
+            <dt>Phone</dt>
+            <dd>{{ faculty.phone }}</dd>
+            {% endif %}
+        </dl>
+    </div>
+</div>
+{% endblock %}

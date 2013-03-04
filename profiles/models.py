@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from academics.models import Course, Section, Subject, Teach
 
+from django.core.urlresolvers import reverse
+
 SEX_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
@@ -47,6 +49,9 @@ class Faculty(models.Model):
     correspondence_address = models.ForeignKey(Address, related_name='correspondence_address', blank=True, null=True)
     description = models.TextField(blank=True, default='')
 
+
+    def get_absolute_url(self):
+        return reverse('faculty_detail', kwargs={'pk': self.id})
 
     def __unicode__(self):
         return '%s %s' %(self.user.first_name, self.user.last_name)
