@@ -8,19 +8,14 @@ from django.contrib.auth.models import User
 from profiles.models import Faculty, Student
 from academics.models import Performance
 
-class AttendanceListView(ListView):
-    context_object_name = 'attendance_list'
-    template_name = 'attendance_list.html'
-    model = Performance
-
-class MarksListView(ListView):
-    context_object_name = 'marks_list'
-    template_name = 'marks_list.html'
+class PerformanceListView(ListView):
+    context_object_name = 'performance_list'
+    template_name = 'performance_list.html'
     model = Performance
 
 class PerformanceUpdateView(UpdateView):
     model = Performance
     template_name = 'performance_update.html'
-    success_url = '/academics/marks/'
+    success_url = '/academics/performance/'
 
 

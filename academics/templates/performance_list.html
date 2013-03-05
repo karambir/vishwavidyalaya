@@ -3,7 +3,7 @@
 {% block head_title %}Attendance - Amity University - CSE Dept{% endblock %}
 {% block content %}
 <div class="row">
-    <h2>Students Attendance</h2>
+    <h2>Students Performance</h2>
     <div class="row">
         <div class="span6 offset4">
             <form>
@@ -22,23 +22,25 @@
         <tr>
             <th>Enrolment Number</th>
             <th>Name</th>
-            <th>Course</th>
             <th>Group</th>
             <th>Attendance</th>
             <th>Total Attendance</th>
-            <th>% Attendance</th>
+            <th>Sessional 1</th>
+            <th>Sessional 2</th>
+            <th>Quiz/Assignment</th>
         </tr>
     </thead>
     <tbody>
-    {% for attendance in attendance_list %}
+    {% for performance in performance_list %}
     <tr>
-        <td>{{ attendance.student.enrolment_number }}</td>
-        <td><a href="/academics/student/{{ attendance.student.id }}/">{{ attendance.student.first_name}} {{ attendance.student.last_name }}</a></td>
-        <td>{{ attendance.student.section }}</td>
-        <td>{{ attendance.student.group }}</td>
-        <td>{{ attendance.attendance }}</td>
-        <td>{{ attendance.total_attendance }}</td>
-        <td>{{ attendance.get_attendance }}</td>
+        <td>{{ performance.student.enrolment_number }}</td>
+        <td><a href="/academics/student/{{ performance.student.id }}/">{{ performance.student.first_name}} {{ performance.student.last_name }}</a></td>
+        <td>{{ performance.student.group }}</td>
+        <td>{{ performance.attendance }}</td>
+        <td>{{ performance.total_attendance }}</td>
+        <td>{{ performance.sessional1 }}</td>
+        <td>{{ performance.sessional2 }}</td>
+        <td>{{ performance.quiz }}</td>
     </tr>
     {% endfor %}
 </table>
