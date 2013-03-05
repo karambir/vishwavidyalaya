@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load bootstrap %}
 
 {% block head_title %}Update Student Performance{% endblock %}
 {% block content %}
@@ -10,7 +11,7 @@
     <div class="span6 offset3 well">
         <form method="post" action="">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|bootstrap }}
             <button class="btn btn-primary" type="submit">Update</button>
         </form>
     </div>

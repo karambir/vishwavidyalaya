@@ -21,5 +21,6 @@ class MarksListView(ListView):
 class PerformanceUpdateView(UpdateView):
     model = Performance
     template_name = 'performance_update.html'
+    success_url = '/academics/marks/'
 
 

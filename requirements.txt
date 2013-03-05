@@ -8,3 +8,4 @@ django-guardian==1.0.5.dev
 gunicorn==0.17.2
 psycopg2==2.4.6
 wsgiref==0.1.2
+django-bootstrap-form==2.0.5
