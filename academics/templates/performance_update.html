@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head_title %}Update Student Performance{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>Update Marks and Attendance</h2>
+    <a href="/academics/marks/" class="btn btn-primary pull-left">Go Back</a>
+</div>
+<div class="row">
+    <div class="span6 offset3 well">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">Update</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
