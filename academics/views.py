@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from profiles.models import Faculty, Student
 from academics.models import Performance
 
+from academics.forms import *
+
 class PerformanceListView(ListView):
     context_object_name = 'performance_list'
     template_name = 'performance_list.html'
@@ -15,7 +17,13 @@ class PerformanceListView(ListView):
 
 class PerformanceUpdateView(UpdateView):
     model = Performance
+    form_class = PerformanceUpdateForm
     template_name = 'performance_update.html'
     success_url = '/academics/performance/'
+
+    def get_context_data(self, **kwargs):
+        context = super(PerformanceUpdateView, self).get_context_data(**kwargs)
+        context['student'] = Performance.objects.get(id=self.kwargs['pk']).student
+        return context
 
 
