@@ -6,13 +6,18 @@ from django.views.generic import ListView, CreateView, DetailView
 
 from django.contrib.auth.models import User
 from profiles.models import Faculty, Student
-from mentors.models import MenteeMeeting
+from mentors.models import MenteeMeeting, Mentee
+
+class MenteeDetailView(DetailView):
+    context_object_name = 'mentee'
+    template_name = 'mentee_detail.html'
+    model = Mentee
 
 
-class MenteeRecordsListView(ListView):
+class MenteeListView(ListView):
     context_object_name = 'mentee_list'
-    template_name = 'mentee_record_list.html'
-    model = Student
+    template_name = 'mentee_list.html'
+    model = Mentee
 
 class MenteeMeetingListView(ListView):
     context_object_name = 'meeting_list'

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head_title %}Mentee Records{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>Mentee Records</h2>
+    <a href="/mentee/meetings/" class="btn btn-inverse pull-right">Mentee Meetings</a>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Enrolment Number</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Section</th>
+            <th>Group</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for mentee in mentee_list %}
+    <tr>
+        <td>{{ mentee.student.enrolment_number }}</td>
+        <td>{{ mentee.student.first_name }} {{ mentee.student.last_name }}</td>
+        <td>{{ mentee.student.course }}</td>
+        <td>{{ mentee.student.section }}</td>
+        <td>{{ mentee.student.group }}</td>
+        <td><a href="/mentee/{{ mentee.id }}/" class="btn">Details</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

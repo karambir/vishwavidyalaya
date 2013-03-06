@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <h2>Mentee Details</h2>
+    <a href="/mentee/" class="btn btn-primary pull-left">Mentee Records</a>
+    <a href="/mentee/meetings/" class="btn btn-inverse pull-right">Mentee Meetings</a>
+</div>
+<div class="row">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Name</dt>
+            <dd>{{ mentee.student }}</dd>
+            <dt>Course/Group</dt>
+            <dd>{{ mentee.student.course }} / {{ mentee.student.group }}</dd>
+            <dt>Permanent Address</dt>
+            <dd>{{ mentee.get_permanent_address }}</dd>
+            <dt>Present Address</dt>
+            <dd>{{ mentee.get_present_address }}</dd>
+            <dt>Special Achievements</dt>
+            <dd>{{ mentee.special_achievements|default:"None" }}</dd>
+            <dt>Interests</dt>
+            <dd>{{ mentee.interests|default:"None" }}</dd>
+        </dl>
+    </div>
+</div>
+    <a href="/mentee/new-meeting/" class="btn btn-success pull-right">New Meeting</a>
+{% endblock %}
