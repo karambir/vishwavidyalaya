@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load bootstrap %}
+{% load widget_tweaks %}
 
 {% block extra_head %}
 <style>
@@ -15,7 +16,14 @@
         {{ formset.management_form }}
         {% for form in formset %}
             <div class="row form-row">
-                    {{ form|bootstrap }}
+                {% for field in form %}
+                    {{ field.errors }}
+                    {% if forloop.first %}
+                        {{ field|add_class:"span4" }}
+                    {% else %}
+                        {{ field|add_class:"span1" }}
+                    {% endif %}
+                {% endfor %}
             </div>
         {% endfor %}
         <button type="submit" class="btn btn-primary">Save</button>

@@ -28,6 +28,7 @@ THIRD_PARTY_APPS = (
     'guardian',
     'bootstrapform',
     'extra_views',
+    'widget_tweaks',
 )
 
 LOCAL_APPS = (
