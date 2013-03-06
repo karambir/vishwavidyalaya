@@ -1,9 +1,9 @@
 from django.db import models
-from profiles.models import faculty
+from profiles.models import Faculty
 
 from django.core.urlresolvers import reverse
 
-class news(models.Model):
+class News(models.Model):
     faculty = models.ForeignKey(Faculty)
     created_at = models.DateField(auto_now_add=True)
     title = models.CharField(max_length=300)

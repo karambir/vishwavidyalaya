@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response
 
 from django.views.generic import ListView, DetailView
 
-from profiles.models import Faculty
+from news.models import News
 
 class NewsListView(ListView):
     context_object_name = 'news_list'

@@ -4,7 +4,7 @@
 {% block content %}
 <div class="row">
     <h2>{{ news.title }}</h2>
-    <a href="/news/" class="btn btn-success pull-right"></a>
+    <a href="/news/" class="btn btn-inverse pull-right">Go Back</a>
 </div>
 <div class="row well">
     <div class="span6 offset1">
@@ -17,6 +17,6 @@
             <dd>{{ news.description }}</dd>
         </dl>
     </div>
-    <a href="#" class="btn btn-primary">Edit</a>
 </div>
+    <a href="#" class="btn btn-primary pull-right">Edit</a>
 {% endblock %}
