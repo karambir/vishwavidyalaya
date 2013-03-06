@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head_title %}News - CSE Dept{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>News and Announcements</h2>
+</div>
+<div class="row">
+    <ul class="unstyled">
+    {% for news in news_list %}
+    <li><a href="/news/{{ news.id }}/">{{ news.title }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}

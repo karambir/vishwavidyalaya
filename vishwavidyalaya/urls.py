@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     url(r'^mentee/', include('mentors.urls')),
     url(r'^profiles/', include('profiles.urls')),
     url(r'^academics/', include('academics.urls')),
+    url(r'^news/', include('news.urls')),
 
 )

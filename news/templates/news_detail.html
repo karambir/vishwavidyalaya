@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ news.title }} - CSE Dept{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{ news.title }}</h2>
+    <a href="/news/" class="btn btn-success pull-right"></a>
+</div>
+<div class="row well">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Created by</dt>
+            <dd>{{ news.faculty }}</dd>
+            <dt>Created on</dt>
+            <dd>{{ news.created_at }}</dd>
+            <dt>Description</dt>
+            <dd>{{ news.description }}</dd>
+        </dl>
+    </div>
+    <a href="#" class="btn btn-primary">Edit</a>
+</div>
+{% endblock %}
