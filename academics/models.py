@@ -45,11 +45,11 @@ class Teach(models.Model):
 class Performance(models.Model):
     student = models.ForeignKey('profiles.Student')
     subject = models.ForeignKey(Subject)
-    sessional1 = models.IntegerField(default=0)
-    sessional2 = models.IntegerField(default=0)
-    quiz = models.IntegerField(default=0)
-    attendance = models.IntegerField(default=0)
-    total_attendance = models.IntegerField(default=0)
+    sessional1 = models.IntegerField(null=True, blank=True, default=0)
+    sessional2 = models.IntegerField(null=True, blank=True, default=0)
+    quiz = models.IntegerField(null=True, blank=True, default=0)
+    attendance = models.IntegerField(null=True, blank=True, default=0)
+    total_attendance = models.IntegerField(null=True, blank=True, default=0)
 
     class Meta:
         permissions = (

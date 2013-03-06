@@ -38,6 +38,6 @@ def performance_inline(request):
             return HttpResponseRedirect('/academics/performance/')
     else:
         formset = PerformanceFormSet(instance=subject)
-    return render_to_response('performance_inline.html', {'formset':formset,}, context_instance=RequestContext(request))
+    return render_to_response('performance_inline_update.html', {'formset':formset,}, context_instance=RequestContext(request))
 
 
