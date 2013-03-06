@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% load widget_tweaks %}
+
+{% block extra_head %}
+<style>
+    .form-row {
+        margin-bottom: 20px;
+    }
+    input.error {
+        border-color:#b94a48;
+        -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+        -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+        box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);
+        background-color: #b94a48;
+        color: #fff;
+    }
+    .error-msg {
+        border: 1px dotted #f00;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>Edit Student Performance</h2>
+    <a href="/academics/performance/" class="btn btn-inverse pull-right">Go Back</a>
+</div>
+<div class="row">
+    <form class="form-inline" method="post" action="">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Sessional 1</th>
+                <th>Sessional 2</th>
+                <th>Quiz</th>
+                <th>Attendance</th>
+                <th>Total Attendance</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for form in formset %}
+            <tr>
+                <td>{{ form.id }}</td>
+                <td>{{ form.student|add_error_class:"error"|add_class:"span3" }}</td>
+                <td>{{ form.sessional1|add_error_class:"error"|add_class:"span1" }}</td>
+                <td>{{ form.sessional2|add_error_class:"error"|add_class:"span1" }}</td>
+                <td>{{ form.quiz|add_error_class:"error"|add_class:"span1" }}</td>
+                <td>{{ form.attendance|add_error_class:"error"|add_class:"span1" }}</td>
+                <td>{{ form.total_attendance|add_error_class:"error"|add_class:"span1" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary pull-right">Save</button>
+    </form>
+</div>
+{% endblock %}

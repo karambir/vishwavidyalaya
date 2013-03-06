@@ -27,6 +27,8 @@ THIRD_PARTY_APPS = (
     'registration',
     'guardian',
     'bootstrapform',
+    'extra_views',
+    'widget_tweaks',
 )
 
 LOCAL_APPS = (
@@ -101,7 +103,7 @@ LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True
+USE_TZ = False
 
 # List of finder classes that know how to find static files in
 # various locations.
