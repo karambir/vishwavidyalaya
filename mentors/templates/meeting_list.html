@@ -4,14 +4,17 @@
 {% block content %}
 <div class="row">
     <h2>Mentee Meetings</h2>
-    <a href="/mentee/" class="btn btn-primary pull-left">Mentee Records</a>
+    <div class="btn-group">
+        <a href="/mentee/" class="btn btn-primary">Mentee Records</a>
+        <a href="/mentee/new-meeting/" class="btn">New Meeting</a>
+    </div>
 </div>
 <table class="table table-striped table hover">
     <thead>
         <tr>
             <th>Date</th>
             <th>Mentor</th>
-            <th>Student</th>
+            <th>Mentee</th>
         </tr>
     </thead>
     <tbody>
@@ -19,11 +22,10 @@
         <tr>
             <td>{{ meeting.date }}</td>
             <td>{{ meeting.mentor }}</td>
-            <td>{{ meeting.student }}</td>
+            <td>{{ meeting.mentee }}</td>
             <td><a href="/mentee/meetings/{{ meeting.id }}/" class="btn">Detail</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-    <a href="/mentee/new-meeting/" class="btn btn-success pull-right">New Meeting</a>
 {% endblock %}
