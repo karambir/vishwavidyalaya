@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+
+{% block extra_head %}
+<style>
+    .form-row {
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <form class="form-inline" method="post" action="">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+            <div class="row form-row">
+                    {{ form|bootstrap }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+{% endblock %}

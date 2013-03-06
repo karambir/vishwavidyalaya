@@ -27,6 +27,7 @@ THIRD_PARTY_APPS = (
     'registration',
     'guardian',
     'bootstrapform',
+    'extra_views',
 )
 
 LOCAL_APPS = (

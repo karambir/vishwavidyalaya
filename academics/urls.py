@@ -6,4 +6,5 @@ from academics.views import *
 urlpatterns = patterns('',
     url(r'^performance/$', login_required(PerformanceListView.as_view()), name='attendance_home'),
     url(r'^student/(?P<pk>\d+)/$', login_required(PerformanceUpdateView.as_view()), name='performance_update'),
+    url(r'^inline/$', performance_inline),
 )
