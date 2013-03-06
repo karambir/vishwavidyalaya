@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <h2>Mentee Meeting</h2>
+    <a href="/mentee/" class="btn btn-primary pull-left">Mentee Records</a>
+    <a href="/mentee/meetings/" class="btn btn-inverse pull-right">Mentee Meetings</a>
+</div>
+<div class="row">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Mentor</dt>
+            <dd>{{ meeting.mentor }}</dd>
+            <dt>Date</dt>
+            <dd>{{ meeting.date }}</dd>
+            <dt>Remarks</dt>
+            <dd>{{ meeting.remarks }}</dd>
+        </dl>
+    </div>
+</div>
+    <a href="/mentee/new-meeting/" class="btn btn-success pull-right">New Meeting</a>
+{% endblock %}

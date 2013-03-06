@@ -2,6 +2,8 @@ from django.db import models
 from profiles.models import Faculty, Student
 from academics.models import Section
 
+from django.core.urlresolvers import reverse
+
 GROUP_CHOICES = (
         (1, 1),
         (2, 2),
@@ -14,6 +16,7 @@ class Mentor(models.Model):
 
     def __unicode__(self):
         return '%s - %s - %s' %(self.faculty, self.section, self.group)
+
 
 class MenteeMeeting(models.Model):
     mentor = models.ForeignKey(Mentor)
@@ -28,3 +31,6 @@ class MenteeMeeting(models.Model):
 
     def __unicode__(self):
         return '%s - %s on %s' %(self.mentor.faculty.user.first_name, self.student.first_name, self.date)
+
+    def get_absolute_url(self):
+        return reverse('mentee_meeting_detail', kwargs={'pk': self.id})
