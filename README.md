@@ -15,17 +15,11 @@ Vishwavidyalaya is an Open Source College management Solution aimed at simplifyi
 ##Authors
 
 + [Karambir Singh Nain](http://nainomics.in/)
-+ [Mayank Jain](http://mayank-jain.in/)
 
 ##Contributors
 
++ [Mayank Jain](http://mayank-jain.in/)
 + Aditya Yadav
-+ [Mohammad Adil](http://madil.in/)
-
-##Supportors
-
-+ Mrs. Chaaru Jain
-+ Mr. Jasmeet Singh
 
 ##License
 
