@@ -36,7 +36,6 @@ LOCAL_APPS = (
     'school',
     'academics',
     'mentor_system',
-    'timetable',
     'info',
 )
 
