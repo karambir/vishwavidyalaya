@@ -6,7 +6,7 @@ class FacultyAdmin(admin.ModelAdmin):
     search_fields = ['empId' ,'designation', 'qualification', 'experience']
 
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('enrolment_number', 'first_name', 'last_name', 'course', 'section')
+    list_display = ('enrollment_number', 'first_name', 'last_name', 'course', 'section')
     search_fields = ['first_name', 'last_name', 'email', 'form_number', 'enrolment_number']
 
 admin.site.register(Director)

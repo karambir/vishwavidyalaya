@@ -40,6 +40,9 @@ class Faculty(models.Model):
     #is_coordinator = models.BooleanField(default=False)
     #is_hod = models.BooleanField(default=False)
 
+    class Meta():
+        verbose_name = 'Faculty'
+        verbose_name_plural = 'Faculties'
 
     def get_absolute_url(self):
         return reverse('faculty_detail', kwargs={'pk': self.id})
