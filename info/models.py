@@ -11,6 +11,10 @@ class News(models.Model):
     title = models.CharField(max_length=300)
     description = models.TextField(null=True, blank=True)
 
+    class Meta():
+        verbose_name = 'News'
+        verbose_name_plural = 'News'
+
     def __unicode__(self):
         return self.title
 
