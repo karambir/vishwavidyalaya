@@ -13,11 +13,11 @@ urlpatterns = patterns('',
 
     (r'^$', TemplateView.as_view(template_name = 'base.html')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('registration.backends.default.urls')),
-    (r'^accounts/profile/$', login_required(TemplateView.as_view(template_name = 'profile.html'))),
-    url(r'^mentee/', include('mentors.urls')),
-    url(r'^profiles/', include('profiles.urls')),
-    url(r'^academics/', include('academics.urls')),
-    url(r'^news/', include('news.urls')),
+    #url(r'^accounts/', include('registration.backends.default.urls')),
+    #(r'^accounts/profile/$', login_required(TemplateView.as_view(template_name = 'profile.html'))),
+    #url(r'^mentee/', include('mentors.urls')),
+    #url(r'^profiles/', include('profiles.urls')),
+    #url(r'^academics/', include('academics.urls')),
+    #url(r'^news/', include('news.urls')),
 
 )
