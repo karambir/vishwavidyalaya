@@ -1,109 +1,78 @@
 {% load url from future %}
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block head_title %}Amity University - CSE Dept{% endblock %}</title>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block head_title %}Amity University Haryana{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css" media="screen">
+    <meta name="description" content="This is college management solution from codesters">
+    <meta name="author" content="Karambir Singh Nain">
 
-    <style>
-        body {
-            margin-top: 10px;
-        }
-        .header {
-            margin-bottom: 30px;
-        }
-        .content {
-            margin-bottom: 60px;
-        }
-        .footer {
-            padding: 100px 0;
-        }
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
     </style>
-    {% block extra_head %}{% endblock %}
-</head>
-<body>
-{% block body %}
-<div class="container">
-<div class="header">
-    <h1>Amity University Haryana</h1>
-    <p class="lead">Computer Science Dept</p>
-    <div class="row clearfix">
-        <ul class="nav nav-tabs">
-            <li><a href="/">Home</a></li>
-            {% if user.is_authenticated %}
-            <li class="dropdown">
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+        {% block extra_head %}{% endblock %}
+  </head>
+
+  <body>
+    {% block body %}
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Amity University</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+                <li class="active"><a href="/">Home</a></li>
+              {% if user.is_authenticated %}
+              <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'school_detail' pk='1' %}">School</a></li>
-                    <li><a href="{% url 'school_detail' pk='1' %}">Course</a></li>
+                    <li><a href="{% url 'school_overview' %}">All</a></li>
+                  <li><a href="#">Departments</a></li>
+                  <li><a href="#">Courses</a></li>
+                  <li><a href="#">Sections</a></li>
                 </ul>
-            </li>
-            <li><a href="/mentee/">Mentee Records</a></li>
-            <li><a href="/academics/performance/">Performance</a></li>
-            <li><a href="/profiles/faculty/">Faculty</a></li>
-            <li><a href="/news/">News</a></li>
-            <li class="pull-right"><a href="/accounts/logout/">Logout</a></li>
-            <li class="pull-right"><a href="/admin/">Admin</a></li>
-            <li class="pull-right"><a href="/accounts/profile/">Account</a></li>
-            {% else %}
-            <li class="pull-right"><a href="/accounts/register/">Register</a></li>
-            <li class="pull-right"><a href="/accounts/login/">Login</a></li>
-            {% endif %}
-        </ul>
-    </div>
-</div>
-<div class="row content">
-    {% block content %}
-    <div class="hero-unit">
-        <h1>Welcome to CSE Dept home</h1>
-        <p class="lead">Manage all student records at one place</p>
-        <a href="/accounts/login/" class="btn btn-large btn-primary">Login Now</a>
-    </div>
-    <div class="row">
-        <div class="span4">
-            <h3>Mentor System</h3>
-            <p>Manage your mentees details and all meetings here.</p>
-            <a href="/mentee/" class="btn">Check Out</a>
+              </li>
+              <li><a href="#about">Mentor System</a></li>
+              <li><a href="#contact">Academics</a></li>
+              <li class="pull-right"><a href="{% url 'auth_logout' %}">Logout</a></li>
+              {% else %}
+              <li class="pull-right"><a href="{% url 'registration_register' %}">Register</a></li>
+              <li class="pull-right"><a href="{% url 'auth_login' %}">Login</a></li>
+              {% endif %}
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
-        <div class="span4">
-            <h3>Attendance</h3>
-            <p>Update your students' attendance here</p>
-            <a href="/academics/attendance/" class="btn">Check Out</a>
-        </div>
-        <div class="span4">
-            <h3>Marks</h3>
-            <p>Manage and update all the internal marks.</p>
-            <a href="/academics/marks/" class="btn">Check Out</a>
-        </div>
+      </div>
     </div>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+
+    </div> <!-- /container -->
     {% endblock %}
-</div>
-<div class="footer">
-    <div class="span3">
-        <ul class="unstyled">
-            <li><a href="#">about</a></li>
-            <li><a href="#">contact</a></li>
-            <li><a href="http://codesters.org">dev team</a></li>
-        </ul>
-    </div>
-    <div class="span5">
-        <p>This project is powered by Django and Python.</p>
-        <p>Made by <a href="http://codesters.org/">Codesters</a></p>
-    </div>
-    <div class="span3 pull-right">
-        <ul class="unstyled">
-            <li><a href="http://amizone.net/">amizone</a></li>
-            <li><a href="http://amity.edu/">amity.edu</a></li>
-            <li><a href="http://amity.edu/gurgaon/">amity gurgaon</a></li>
-        </ul>
-    </div>
-</div>
-</div>
-{% endblock %}
-<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
-<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-{% block extra_js %}{% endblock %}
-</body>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    {% block extra_js %}{% endblock %}
+  </body>
 </html>

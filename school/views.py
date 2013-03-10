@@ -5,6 +5,15 @@ from django.shortcuts import render_to_response
 from django.views.generic import UpdateView, CreateView, DetailView
 
 from school.models import School, Course, Department, Section, Subject
+from profiles.models import Student, Faculty, Director
+
+def school_overview(request):
+    try:
+        u = Director.objects.get(user=request.user)
+    except:
+        u = Faculty.objects.get(user=request.user)
+    school = u.school
+    return render_to_response('school_overview.html', {'school':school}, context_instance=RequestContext(request))
 
 
 class SchoolDetailView(DetailView):
