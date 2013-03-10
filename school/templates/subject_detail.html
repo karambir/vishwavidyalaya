@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head_title %}School{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{ school.name }}</h2>
+</div>
+<div class="row well">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Type</dt>
+            <dd>{{ school.school_type }}</dd>
+            <dt>University</dt>
+            <dd>{{ school.university }}</dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}

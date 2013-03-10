@@ -84,7 +84,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(PROJECT_ROOT, 'templates'),
-    os.path.join(PROJECT_ROOT, 'mentors', 'templates'),
+    os.path.join(PROJECT_ROOT, 'school', 'templates'),
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'

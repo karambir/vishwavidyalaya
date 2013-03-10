@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head_title %}School{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{ course.name }}</h2>
+</div>
+<div class="row well">
+    <div class="span8 offset1">
+        <dl class="dl-horizontal">
+            <dt>Duration</dt>
+            <dd>{{ course.duration }}</dd>
+            <dt>School</dt>
+            <dd>{{ course.school }}</dd>
+            <dt>Coordinator</dt>
+            <dd>{{ course.coordinator|default:"Not Assigned" }}</dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head_title %}School{% endblock %}
+{% block content %}
+<div class="row">
+    <h2>{{ dept.name }} Department</h2>
+</div>
+<div class="row well">
+    <div class="span8 offset1">
+        <dl class="dl-horizontal">
+            <dt>School</dt>
+            <dd>{{ dept.school }}</dd>
+            <dt>Head of Department</dt>
+            <dd>{{ dept.hod|default:"Not Assigned" }}</dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}

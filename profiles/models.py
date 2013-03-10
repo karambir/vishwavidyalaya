@@ -19,6 +19,9 @@ class Director(models.Model):
     def __unicode__(self):
         return '%s %s' %(self.user.first_name, self.user.last_name)
 
+    def get_absolute_url(self):
+        return reverse('director_detail', kwargs={'pk': self.id})
+
 
 class Faculty(models.Model):
     empID = models.IntegerField(null=True, blank=True)
@@ -44,11 +47,11 @@ class Faculty(models.Model):
         verbose_name = 'Faculty'
         verbose_name_plural = 'Faculties'
 
-    def get_absolute_url(self):
-        return reverse('faculty_detail', kwargs={'pk': self.id})
-
     def __unicode__(self):
         return '%s %s' %(self.user.first_name, self.user.last_name)
+
+    def get_absolute_url(self):
+        return reverse('faculty_detail', kwargs={'pk': self.id})
 
 
 GROUP_CHOICES = (
@@ -65,6 +68,7 @@ class Student(models.Model):
     sex = models.CharField(max_length=1, choices=SEX_CHOICES)
     email = models.EmailField(null=True, blank=True)
     phone = models.BigIntegerField(null=True, blank=True)
+    school = models.ForeignKey(School)
     course = models.ForeignKey(Course)
     section = models.ForeignKey(Section, null=True, blank=True)
     group = models.IntegerField(max_length=1, choices=GROUP_CHOICES, null=True, blank=True)
@@ -75,14 +79,14 @@ class Student(models.Model):
                 ('view_student', 'Can View Student Profile'),
                 )
 
-    def get_full_name(self):
-        return self.first_name+' '+self.last_name
-
-    def get_absolute_url(self):
-        return reverse('student_detail', kwargs={'pk': self.id})
-
     def __unicode__(self):
         if self.last_name:
             return '%s %s' %(self.first_name, self.last_name)
         else:
             return self.first_name
+
+    def get_absolute_url(self):
+        return reverse('student_detail', kwargs={'pk': self.id})
+
+    def get_full_name(self):
+        return self.first_name+' '+self.last_name

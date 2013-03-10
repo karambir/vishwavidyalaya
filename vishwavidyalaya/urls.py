@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
     (r'^$', TemplateView.as_view(template_name = 'base.html')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^school/', include('school.urls')),
     #url(r'^accounts/', include('registration.backends.default.urls')),
     #(r'^accounts/profile/$', login_required(TemplateView.as_view(template_name = 'profile.html'))),
     #url(r'^mentee/', include('mentors.urls')),
