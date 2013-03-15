@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head_title %}Profile Amity University - CSE Dept{% endblock %}
+{% block page_title %}Welcome {{ user.get_full_name }}{% endblock %}
 {% block content %}
-<h3>Welcome {{ user.get_full_name }}</h3>
 <p class="lead">You have successfully logged in</p>
 {% endblock %}

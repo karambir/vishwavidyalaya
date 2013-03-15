@@ -21,6 +21,7 @@ class Course(models.Model):
     name = models.CharField(max_length=90)
     duration = models.IntegerField(help_text='in years')
     code = models.CharField(max_length=10)
+    department = models.ForeignKey('Department')
     school = models.ForeignKey(School)
     coordinator = models.ForeignKey('profiles.Faculty', null=True, blank=True)
 
@@ -74,3 +75,7 @@ class Session(models.Model):
 
     def __unicode__(self):
         return '%s %s' %(self.year, self.semester)
+
+def get_session():
+    session_count = Session.objects.all().count()
+    return Session.objects.get(id=session_count)
