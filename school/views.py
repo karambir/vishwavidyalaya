@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
+from guardian.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
 from django.views.generic import UpdateView, CreateView, DetailView, ListView
 
 from school.models import School, Course, Department, Section, Subject
@@ -20,7 +22,7 @@ def school_overview(request):
     return render_to_response('school_overview.html', {'school':school, 'hod': hod}, context_instance=RequestContext(request))
 
 
-class DeptListView(ListView):
+class DeptListView(LoginRequiredMixin, ListView):
     context_object_name = 'departments'
     template_name = 'dept_list.html'
 
@@ -45,7 +47,7 @@ class DeptListView(ListView):
         return context
 
 
-class CourseListView(ListView):
+class CourseListView(LoginRequiredMixin, ListView):
     context_object_name = 'courses'
     template_name = 'course_list.html'
 
@@ -70,7 +72,7 @@ class CourseListView(ListView):
         return context
 
 
-class SectionListView(ListView):
+class SectionListView(LoginRequiredMixin, ListView):
     context_object_name = 'sections'
     template_name = 'section_list.html'
 
@@ -95,15 +97,15 @@ class SectionListView(ListView):
         return context
 
 
-class SchoolCreateView(CreateView):
+class SchoolCreateView(LoginRequiredMixin, CreateView):
     model = School
     template_name = 'school_create.html'
 
-class SchoolUpdateView(UpdateView):
+class SchoolUpdateView(LoginRequiredMixin, UpdateView):
     model = School
     template_name = 'school_update.html'
 
-class CourseDetailView(DetailView):
+class CourseDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'course'
     template_name = 'course_detail.html'
     model = Course
@@ -116,15 +118,15 @@ class CourseDetailView(DetailView):
         return context
 
 
-class CourseCreateView(CreateView):
+class CourseCreateView(LoginRequiredMixin, CreateView):
     model = Course
     template_name = 'course_create.html'
 
-class CourseUpdateView(UpdateView):
+class CourseUpdateView(LoginRequiredMixin, UpdateView):
     model = Course
     template_name = 'course_update.html'
 
-class SectionDetailView(DetailView):
+class SectionDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'section'
     template_name = 'section_detail.html'
     model = Section
@@ -137,28 +139,28 @@ class SectionDetailView(DetailView):
         return context
 
 
-class SectionCreateView(CreateView):
+class SectionCreateView(LoginRequiredMixin, CreateView):
     model = Section
     template_name = 'section_create.html'
 
-class SectionUpdateView(UpdateView):
+class SectionUpdateView(LoginRequiredMixin, UpdateView):
     model = Section
     template_name = 'section_update.html'
 
-class SubjectDetailView(DetailView):
+class SubjectDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'subject'
     template_name = 'subject_detail.html'
     model = Subject
 
-class SubjectCreateView(CreateView):
+class SubjectCreateView(LoginRequiredMixin, CreateView):
     model = Subject
     template_name = 'subject_create.html'
 
-class SubjectUpdateView(UpdateView):
+class SubjectUpdateView(LoginRequiredMixin, UpdateView):
     model = Subject
     template_name = 'subject_update.html'
 
-class DeptDetailView(DetailView):
+class DeptDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'department'
     template_name = 'dept_detail.html'
     model = Department
@@ -171,11 +173,11 @@ class DeptDetailView(DetailView):
         return context
 
 
-class DeptCreateView(CreateView):
+class DeptCreateView(LoginRequiredMixin, CreateView):
     model = Department
     template_name = 'dept_create.html'
 
-class DeptUpdateView(UpdateView):
+class DeptUpdateView(LoginRequiredMixin, UpdateView):
     model = Department
     template_name = 'dept_update.html'
 
