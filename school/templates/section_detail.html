@@ -1,16 +1,44 @@
 {% extends "base.html" %}
 
-{% block head_title %}School{% endblock %}
+{% block head_title %}{{ section.name }} {{ section.batch }}{% endblock %}
+{% block page_title %}{{ section.name }}{% endblock %}
+{% block page_subtitle %}{{ section.batch }}{% endblock %}
 {% block content %}
 <div class="row">
-    <h2>{{ section.name }} Section</h2>
-</div>
-<div class="row well">
+    <h3>Mentors</h3>
     <div class="span8 offset1">
         <dl class="dl-horizontal">
-            <dt>School</dt>
-            <dd>{{ section.school }}</dd>
+            <dt>Group1</dt>
+            <dd></dd>
+            <dt>Group2</dt>
+            <dd></dd>
         </dl>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <h3>Students</h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Roll</th>
+                    <th>Name</th>
+                    <th>Group</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.exam_roll }}</td>
+                    <td>{{ student.get_full_name }}</td>
+                    <td>{{ student.group }}</td>
+                    <td>{{ student.email }}  {% if student.phone %}{{ student.email }}{% endif %}</td>
+                    <td><a href="{% url student_detail student.id %}" class="btn">Details</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}

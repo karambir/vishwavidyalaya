@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{% block head_title %}Amity University Haryana{% endblock %}</title>
+    <title>{% block head_title %}VishwaVidyalaya{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This is college management solution from codesters">
     <meta name="author" content="Karambir Singh Nain">
@@ -28,7 +28,7 @@
 
   <body>
     {% block body %}
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -36,22 +36,37 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/">Amity University</a>
+          <a class="brand" href="/">VishwaVidyalaya</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
                 <li class="active"><a href="/">Home</a></li>
               {% if user.is_authenticated %}
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Overview <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">School <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'school_overview' %}">All</a></li>
-                  <li><a href="#">Departments</a></li>
-                  <li><a href="#">Courses</a></li>
-                  <li><a href="#">Sections</a></li>
+                    <li><a href="{% url 'dept_list' %}">Departments</a></li>
+                    <li><a href="{% url 'course_list' %}">Courses</a></li>
+                    <li><a href="{% url 'section_list' %}">Sections</a></li>
+                      {% if is_hod or is_director %}
+                          <li class="divider"></li>
+                          <li class="nav-header">Add New</li>
+                          {% if is_director %}
+                              <li><a href="#">Department</a></li>
+                          {% endif %}
+                          <li><a href="#">Course</a></li>
+                          <li><a href="#">Subject</a></li>
+                      {% endif %}
                 </ul>
               </li>
               <li><a href="#about">Mentor System</a></li>
               <li><a href="#contact">Academics</a></li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Profiles <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="{% url 'director_list' %}">Directors</a></li>
+                      <li><a href="{% url 'faculty_list' %}">Faculties</a></li>
+                      <li><a href="{% url 'student_list' %}">Students</a></li>
+                  </ul>
+              </li>
               <li class="pull-right"><a href="{% url 'auth_logout' %}">Logout</a></li>
               {% else %}
               <li class="pull-right"><a href="{% url 'registration_register' %}">Register</a></li>

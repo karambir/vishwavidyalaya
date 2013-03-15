@@ -1,33 +1,23 @@
 {% extends "base.html" %}
 
-{% block head_title %}{{ department.name }}{% endblock %}
-
-{% block page_title %}{{ department.name }}{% endblock %}
+{% block head_title %}Courses - {{ school.name }} - Vishwavidyalaya{% endblock %}
+{% block page_title %}Courses{% endblock %}
+{% block page_subtitle %}{{ school.name }}{% endblock %}
 {% block content %}
 <div class="row">
-    <h3>Details</h3>
-    <div class="span8 offset1">
-        <dl class="dl-horizontal">
-            <dt>Head of Dept</dt>
-            <dd>{{ department.hod|default:"Not Assigned" }}</dd>
-        </dl>
-    </div>
-</div>
-<div class="row">
-    <h3>Courses</h3>
     <div class="span8 offset2">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Course Name</th>
-                    <th>Coordinator</th>
+                    <th>Course Coordinator</th>
                 </tr>
             </thead>
             <tbody>
                 {% for course in courses %}
                 <tr>
                     <td><a href="{% url course_detail course.id %}">{{ course.name }}</a></td>
-                    <td>{{ course.coordinator }}</td>
+                    <td><a href="{% url faculty_detail course.coordinator.id %}">{{ course.coordinator }}</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
     (r'^accounts/profile/$', login_required(TemplateView.as_view(template_name = 'profile.html'))),
     #url(r'^mentee/', include('mentors.urls')),
-    #url(r'^profiles/', include('profiles.urls')),
+    url(r'^profiles/', include('profiles.urls')),
     #url(r'^academics/', include('academics.urls')),
     #url(r'^news/', include('news.urls')),
 

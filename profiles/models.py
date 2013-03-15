@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from school.models import Course, Section, Subject, School, Department
 
 from django.core.urlresolvers import reverse
+from django.core.exceptions import ObjectDoesNotExist
 
 SEX_CHOICES = (
         ('M', 'Male'),
@@ -53,6 +54,11 @@ class Faculty(models.Model):
     def get_absolute_url(self):
         return reverse('faculty_detail', kwargs={'pk': self.id})
 
+    def is_hod(self):
+        if self.department.hod == self:
+            return True
+        else:
+            return False
 
 GROUP_CHOICES = (
         (1, 1),

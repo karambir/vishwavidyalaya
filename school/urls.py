@@ -4,8 +4,10 @@ from django.contrib.auth.decorators import login_required
 from school.views import *
 
 urlpatterns = patterns('',
-    url(r'^$', school_overview, name='school_overview'),
-    url(r'^(?P<pk>\d+)/$', SchoolDetailView.as_view(), name='school_detail'),
+    #url(r'^$', school_overview, name='school_overview'),
+    url(r'^$', DeptListView.as_view(), name='dept_list'),
+    url(r'^courses/$', CourseListView.as_view(), name='course_list'),
+    url(r'^sections/$', SectionListView.as_view(), name='section_list'),
     url(r'^dept/(?P<pk>\d+)/$', DeptDetailView.as_view(), name='dept_detail'),
     url(r'^course/(?P<pk>\d+)/$', CourseDetailView.as_view(), name='course_detail'),
     url(r'^section/(?P<pk>\d+)/$', SectionDetailView.as_view(), name='section_detail'),

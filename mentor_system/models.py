@@ -8,9 +8,7 @@ from django.dispatch import receiver
 
 @receiver(post_save, sender=Student)
 def mentee_creation(sender, instance, created, **kwargs):
-    mentee = Mentee(student=instance)
-    mentee.save()
-
+    mentee = Mentee.objects.get_or_create(student=instance)
 
 GROUP_CHOICES = (
         (1, 1),

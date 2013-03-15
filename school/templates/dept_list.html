@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head_title %}Departments - {{ school.name }} - Vishwavidyalaya{% endblock %}
+{% block page_title %}Departments{% endblock %}
+{% block page_subtitle %}{{ school.name }}{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="span8 offset2">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Department Name</th>
+                    <th>Department Head</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in departments %}
+                <tr>
+                    <td><a href="{% url dept_detail department.id %}">{{ department.name }}</a></td>
+                    <td><a href="{% url faculty_detail department.hod.id %}">{{ department.hod }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
