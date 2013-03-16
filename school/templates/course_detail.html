@@ -7,7 +7,7 @@
 {% block content %}
 <div class="row">
     <h3>Details</h3>
-    <div class="span8 offset1">
+    <div class="span10 offset1">
         <dl class="dl-horizontal">
             <dt>Duration</dt>
             <dd>{{ course.duration }}</dd>
@@ -19,7 +19,7 @@
 <div class="row">
     <h3>Sections</h3>
     <div class="span8 offset2">
-        <table class="table table-bordered table-striped">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>Section Name</th>
@@ -33,6 +33,7 @@
                     <td><a href="{% url section_detail section.id %}">{{ section.name }} {{ section.batch }}</a></td>
                     <td></td>
                     <td></td>
+                    <td><a href="{% url section_detail section.id %}" class="btn">Details</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -33,7 +33,7 @@
                     <td>{{ student.exam_roll }}</td>
                     <td>{{ student.get_full_name }}</td>
                     <td>{{ student.group }}</td>
-                    <td>{{ student.email }}  {% if student.phone %}{{ student.email }}{% endif %}</td>
+                    <td>{{ student.email }}   {% if student.phone %}{{ student.phone }}{% endif %}</td>
                     <td><a href="{% url student_detail student.id %}" class="btn">Details</a></td>
                 </tr>
                 {% endfor %}

@@ -60,6 +60,13 @@ class Faculty(models.Model):
         else:
             return False
 
+    def is_coordinator(self):
+        school_courses = Course.objects.filter(department = self.department)
+        for course in school_courses:
+            if course.coordinator == self:
+                return True
+        return False
+
 GROUP_CHOICES = (
         (1, 1),
         (2, 2),

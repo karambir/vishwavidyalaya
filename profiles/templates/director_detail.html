@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ director.user.get_full_name }}{% endblock %}
+{% block page_title %}{{ director.user.get_full_name }}{% endblock %}
+{% block page_subtitle %}Director - {{ director.school }}{% endblock %}
+{% block content %}
+<div class="row well">
+    <div class="span6 offset1">
+        <dl class="dl-horizontal">
+            <dt>Emp ID</dt>
+            <dd>{{ director.empID }}</dd>
+            <dt>Name</dt>
+            <dd>{{ director.user.get_full_name }}</dd>
+        </dl>
+    </div>
+</div>
+{% endblock %}

@@ -16,7 +16,7 @@
 <div class="row">
     <h3>Courses</h3>
     <div class="span8 offset2">
-        <table class="table table-bordered table-striped">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>Course Name</th>
@@ -27,7 +27,8 @@
                 {% for course in courses %}
                 <tr>
                     <td><a href="{% url course_detail course.id %}">{{ course.name }}</a></td>
-                    <td>{{ course.coordinator }}</td>
+                    <td><a href="{% url faculty_detail course.coordinator.id %}">{{ course.coordinator }}</a></td>
+                    <td><a href="{% url course_detail course.id %}" class="btn">Details</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -18,7 +18,7 @@ class DirectorDetailView(DetailView):
     model = Director
 
 class FacultyListView(ListView):
-    context_object_name = 'faculty_list'
+    context_object_name = 'faculties'
     template_name = 'faculty_list.html'
     model = Faculty
 

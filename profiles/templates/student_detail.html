@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
 {% block head_title %}Student{% endblock %}
+{% block page_title %}{{ student.get_full_name }}{% endblock %}
+{% block page_subtitle %}{{ student.course }}{% endblock %}
 {% block content %}
 <div class="row">
-    <h2>{{ student.get_full_name }}</h2>
-    <a href="/profiles/student/new/" class="btn btn-success pull-right">Add new Student</a>
+    <a href="{% url student_create %}" class="btn btn-success pull-right">Add new Student</a>
 </div>
 <div class="row well">
     <div class="span6 offset1">
         <dl class="dl-horizontal">
             <dt>Enrolment Number</dt>
-            <dd>{{ student.enrolment_number }}</dd>
+            <dd>{{ student.enrollment_number }}</dd>
             <dt>Name</dt>
             <dd>{{ student.get_full_name }}</dd>
             <dt>Course</dt>

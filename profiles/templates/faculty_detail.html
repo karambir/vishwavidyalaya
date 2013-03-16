@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
-{% block head_title %}Faculty{% endblock %}
+{% block head_title %}{{ faculty.user.get_full_name }}{% endblock %}
+{% block page_title %}{{ faculty.user.get_full_name }}{% endblock %}
+{% block page_subtitle %}{{ faculty.designation }}{% endblock %}
 {% block content %}
 <div class="row">
-    <h2>{{ faculty.user.get_full_name }}</h2>
-    <a href="/profiles/faculty/" class="btn btn-primary pull-left">Go Back</a>
+    <a href="{% url faculty_list %}" class="btn btn-primary pull-left">Go Back</a>
 </div>
 <div class="row well">
     <div class="span6 offset1">

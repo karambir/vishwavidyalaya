@@ -5,8 +5,8 @@
 {% block page_subtitle %}{{ school.name }}{% endblock %}
 {% block content %}
 <div class="row">
-    <div class="span8 offset2">
-        <table class="table table-bordered table-striped">
+    <div class="span10 offset1">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>Department Name</th>
@@ -18,6 +18,7 @@
                 <tr>
                     <td><a href="{% url dept_detail department.id %}">{{ department.name }}</a></td>
                     <td><a href="{% url faculty_detail department.hod.id %}">{{ department.hod }}</a></td>
+                    <td><a href="{% url dept_detail department.id %}" class="btn">Details</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
