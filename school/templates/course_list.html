@@ -5,8 +5,8 @@
 {% block page_subtitle %}{{ school.name }}{% endblock %}
 {% block content %}
 <div class="row">
-    <div class="span8 offset2">
-        <table class="table table-bordered table-striped">
+    <div class="span10 offset1">
+        <table class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>Course Name</th>
@@ -18,6 +18,11 @@
                 <tr>
                     <td><a href="{% url course_detail course.id %}">{{ course.name }}</a></td>
                     <td><a href="{% url faculty_detail course.coordinator.id %}">{{ course.coordinator }}</a></td>
+                    <td><a href="{% url course_detail course.id %}" class="btn">Details</a>
+                        {% if is_director or course.department.hod.user.username == user.username %}
+                        <a href="{% url course_update course.id %}" class="btn">Edit</a>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

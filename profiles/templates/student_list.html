@@ -3,9 +3,11 @@
 {% block head_title %}Students{% endblock %}
 {% block page_title %}Students{% endblock %}
 {% block content %}
+{% if is_hod or is_director or is_coordinator %}
 <div class="row">
-    <a href="/profiles/student/new/" class="btn btn-success pull-right">Add new Student</a>
+    <a href="{% url student_create %}" class="btn btn-success pull-right">Add new Student</a>
 </div>
+{% endif %}
 <table class="table table-striped table-hover">
     <thead>
         <tr>

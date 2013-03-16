@@ -7,6 +7,9 @@
 <div class="row">
     <h3>Details</h3>
     <div class="span8 offset1">
+        {% if is_hod %}
+        <a href="{% url dept_update department.id %}" class="btn btn-success pull-right">Edit this Dept</a>
+        {% endif %}
         <dl class="dl-horizontal">
             <dt>Head of Dept</dt>
             <dd>{{ department.hod|default:"Not Assigned" }}</dd>
@@ -28,7 +31,11 @@
                 <tr>
                     <td><a href="{% url course_detail course.id %}">{{ course.name }}</a></td>
                     <td><a href="{% url faculty_detail course.coordinator.id %}">{{ course.coordinator }}</a></td>
-                    <td><a href="{% url course_detail course.id %}" class="btn">Details</a></td>
+                    <td><a href="{% url course_detail course.id %}" class="btn">Details</a>
+                        {% if is_director or course.department.hod.user.username == user.username %}
+                        <a href="{% url course_update course.id %}" class="btn">Edit</a>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

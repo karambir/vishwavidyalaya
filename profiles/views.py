@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 
-from django.views.generic import ListView, CreateView, DetailView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView
 
 from django.contrib.auth.models import User
 from profiles.models import Faculty, Student, Director
@@ -44,3 +44,7 @@ class StudentDetailView(DetailView):
 class StudentCreateView(CreateView):
     model = Student
     template_name = 'student_create.html'
+
+class StudentUpdateView(UpdateView):
+    model = Student
+    template_name = 'student_update.html'

@@ -59,10 +59,10 @@
                           <li class="divider"></li>
                           <li class="nav-header">Add New</li>
                           {% if is_director %}
-                              <li><a href="#">Department</a></li>
+                          <li><a href="{% url 'dept_create' %}">Department</a></li>
                           {% endif %}
-                          <li><a href="#">Course</a></li>
-                          <li><a href="#">Subject</a></li>
+                          <li><a href="{% url 'dept_create' %}">Course</a></li>
+                          <li><a href="{% url 'dept_create' %}">Subject</a></li>
                       {% endif %}
                 </ul>
               </li>

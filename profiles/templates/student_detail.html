@@ -4,9 +4,11 @@
 {% block page_title %}{{ student.get_full_name }}{% endblock %}
 {% block page_subtitle %}{{ student.course }}{% endblock %}
 {% block content %}
+{% if is_hod or is_director or is_coordinator %}
 <div class="row">
     <a href="{% url student_create %}" class="btn btn-success pull-right">Add new Student</a>
 </div>
+{% endif %}
 <div class="row well">
     <div class="span6 offset1">
         <dl class="dl-horizontal">

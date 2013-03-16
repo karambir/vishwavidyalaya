@@ -33,7 +33,11 @@
                     <td><a href="{% url section_detail section.id %}">{{ section.name }} {{ section.batch }}</a></td>
                     <td></td>
                     <td></td>
-                    <td><a href="{% url section_detail section.id %}" class="btn">Details</a></td>
+                    <td><a href="{% url section_detail section.id %}" class="btn">Details</a>
+                        {% if is_hod or is_director %}
+                        <a href="{% url section_update section.id %}" class="btn">Edit</a>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
