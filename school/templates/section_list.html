@@ -20,9 +20,9 @@
                     <td><a href="{% url section_detail section.id %}">{{ section.name }} {{ section.batch }}</a></td>
                     <td></td>
                     <td></td>
-                    <td><a href="{% url section_detail section.id %}" class="btn">Details</a>
+                    <td><a href="{% url section_detail section.id %}" class="btn"><i class="icon-folder-open"></i> Details</a>
                         {% if is_hod or is_director %}
-                        <a href="{% url section_update section.id %}" class="btn">Edit</a>
+                        <a href="{% url section_update section.id %}" class="btn"><i class="icon-wrench"></i> Edit</a>
                         {% endif %}
                     </td>
                 </tr>

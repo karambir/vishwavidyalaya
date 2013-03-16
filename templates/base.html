@@ -1,4 +1,5 @@
 {% load url from future %}
+{% load tags %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,10 +13,11 @@
     <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
       body {
-        padding-top: 60px;
+        padding-top: 40px;
         padding-bottom: 40px;
       }
       #page-title {
+          padding: 20px 0 10px;
           background-color: #9d261d;
           color: #ffffff !important;
           margin-bottom: 20px;
@@ -34,74 +36,88 @@
         {% block extra_head %}{% endblock %}
   </head>
 
-  <body>
-    {% block body %}
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<body>
+{% block body %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+    <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">VishwaVidyalaya</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-                <li class="active"><a href="/">Home</a></li>
-              {% if user.is_authenticated %}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">School <b class="caret"></b></a>
+        </button>
+        <a class="brand" href="/">VishwaVidyalaya</a>
+        <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+            <li class="{% active request "^/$" %}"><a href="/"><i class="icon-home"></i> Home</a></li>
+        {% if user.is_authenticated %}
+            <li class="{% active request "^/academics/" %}"><a href="#contact"><i class="icon-book"></i> Academics</a></li>
+            <li class="{% active request "^/mentor-system/" %}"><a href="#about"><i class="icon-map-marker"></i> Mentor System</a></li>
+            <li class="{% active request "^/school/" %} dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i> School <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{% url 'dept_list' %}">Departments</a></li>
-                    <li><a href="{% url 'course_list' %}">Courses</a></li>
-                    <li><a href="{% url 'section_list' %}">Sections</a></li>
-                      {% if is_hod or is_director %}
-                          <li class="divider"></li>
-                          <li class="nav-header">Add New</li>
-                          {% if is_director %}
-                          <li><a href="{% url 'dept_create' %}">Department</a></li>
-                          {% endif %}
-                          <li><a href="{% url 'dept_create' %}">Course</a></li>
-                          <li><a href="{% url 'dept_create' %}">Subject</a></li>
-                      {% endif %}
+                    <li><a href="{% url 'dept_list' %}"><i class="icon-briefcase"></i> Departments</a></li>
+                    <li><a href="{% url 'course_list' %}"><i class="icon-tag"></i> Courses</a></li>
+                    <li><a href="{% url 'section_list' %}"><i class="icon-pencil"></i> Sections</a></li>
+                {% if is_hod or is_director %}
+                    <li class="divider"></li>
+                    <li class="nav-header"><i class="icon-plus"></i> Add New</li>
+                    {% if is_director %}
+                    <li><a href="{% url 'dept_create' %}"><i class="icon-briefcase"></i> Department</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'dept_create' %}"><i class="icon-tag"></i> Course</a></li>
+                    <li><a href="{% url 'dept_create' %}"><i class="icon-book"></i> Subject</a></li>
+                {% endif %}
                 </ul>
-              </li>
-              <li><a href="#about">Mentor System</a></li>
-              <li><a href="#contact">Academics</a></li>
-              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Profiles <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li><a href="{% url 'director_list' %}">Director</a></li>
-                      <li><a href="{% url 'faculty_list' %}">Faculty</a></li>
-                      <li><a href="{% url 'student_list' %}">Student</a></li>
-                  </ul>
-              </li>
-              <li class="pull-right"><a href="{% url 'auth_logout' %}">Logout</a></li>
-              {% else %}
-              <li class="pull-right"><a href="{% url 'registration_register' %}">Register</a></li>
-              <li class="pull-right"><a href="{% url 'auth_login' %}">Login</a></li>
-              {% endif %}
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
+            </li>
+            <li class="{% active request "^/profiles/" %} dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Profiles <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'director_list' %}">Director</a></li>
+                    <li><a href="{% url 'faculty_list' %}">Faculty</a></li>
+                    <li><a href="{% url 'student_list' %}">Student</a></li>
+                {% if is_director or is_hod or is_coordinator %}
+                    <li class="divider"></li>
+                    <li class="nav-header"><i class="icon-plus"></i> Add New</li>
+                    <li><a href="{% url 'student_create' %}">Student</a></li>
+                    {% if is_director %}
+                    <li><a href="{% url 'faculty_create' %}">Faculty</a></li>
+                    {% endif %}
+                {% endif %}
+                </ul>
+            </li>
+            <li class="{% active request '^/accounts/' %} dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-asterisk"></i> {{ user.username }} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'user_profile' %}"><i class="icon-picture"></i> My Profile</a></li>
+                    <li><a href="{% url 'user_profile' %}"><i class="icon-wrench"></i> Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'auth_logout' %}"><i class="icon-off"></i> Logout</a></li>
+                </ul>
+            </li>
+        {% else %}
+            <li class="{% active request "^/accounts/register/$" %}"><a href="{% url 'registration_register' %}"><i class="icon-download-alt"></i> Register</a></li>
+            <li class="{% active request "^/accounts/login/$" %}"><a href="{% url 'auth_login' %}"><i class="icon-download"></i> Login</a></li>
+        {% endif %}
+        </ul>
+      </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar-inner -->
+</div><!--/.navbar -->
+<div class="row" id="page-title">
+    <div class="container">
+        <div class="page-header">
+            <h1>{% block page_title %}{% endblock %}  <small>{% block page_subtitle %}{% endblock %}</small></h1>
+        </div><!--/.page-header -->
     </div>
-    <div class="row" id="page-title">
-        <div class="container">
-            <div class="page-header">
-                <h1>{% block page_title %}{% endblock %}  <small>{% block page_subtitle %}{% endblock %}</small></h1>
-            </div>
-        </div>
-    </div>
-    <div class="container content">
-        {% block content %}{% endblock %}
-
-    </div> <!-- /container -->
-    {% endblock %}
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-    {% block extra_js %}{% endblock %}
-  </body>
+</div><!--/.page-title -->
+<div class="container content">
+    {% block content %}{% endblock %}
+</div> <!-- /container -->
+{% endblock %}
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+{% block extra_js %}{% endblock %}
+</body>
 </html>

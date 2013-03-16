@@ -18,9 +18,9 @@
                 <tr>
                     <td><a href="{% url course_detail course.id %}">{{ course.name }}</a></td>
                     <td><a href="{% url faculty_detail course.coordinator.id %}">{{ course.coordinator }}</a></td>
-                    <td><a href="{% url course_detail course.id %}" class="btn">Details</a>
+                    <td><a href="{% url course_detail course.id %}" class="btn"><i class="icon-folder-open"></i> Details</a>
                         {% if is_director or course.department.hod.user.username == user.username %}
-                        <a href="{% url course_update course.id %}" class="btn">Edit</a>
+                        <a href="{% url course_update course.id %}" class="btn"><i class="icon-wrench"></i> Edit</a>
                         {% endif %}
                     </td>
                 </tr>

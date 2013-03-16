@@ -19,9 +19,9 @@
                     <td><a href="{% url dept_detail department.id %}">{{ department.name }}</a></td>
                     <td><a href="{% url faculty_detail department.hod.id %}">{{ department.hod }}</a></td>
                     <td>
-                        <a href="{% url dept_detail department.id %}" class="btn">Details</a>
+                        <a href="{% url dept_detail department.id %}" class="btn"><i class="icon-folder-open"></i> Details</a>
                         {% if is_director %}
-                        <a href="{% url dept_update department.id %}" class="btn">Edit</a>
+                        <a href="{% url dept_update department.id %}" class="btn"><i class="icon-wrench"></i> Edit</a>
                         {% endif %}
                     </td>
                 </tr>

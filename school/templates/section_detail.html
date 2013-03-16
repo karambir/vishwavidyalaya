@@ -34,9 +34,9 @@
                     <td>{{ student.get_full_name }}</td>
                     <td>{{ student.group }}</td>
                     <td>{{ student.email }}   {% if student.phone %}{{ student.phone }}{% endif %}</td>
-                    <td><a href="{% url student_detail student.id %}" class="btn">Details</a>
-                        {% if is_hod or is_director or is_coordinator %}
-                        <a href="{% url student_update student.id %}" class="btn">Edit</a>
+                    <td><a href="{% url student_detail student.id %}" class="btn"><i class="icon-folder-open"></i> Details</a>
+                        {% if is_director or student.course.coordinator.user.username == user.username or student.course.department.hod.user.username == user.username  %}
+                        <a href="{% url student_update student.id %}" class="btn"><i class="icon-wrench"></i> Edit</a>
                         {% endif %}
                     </td>
                 </tr>
