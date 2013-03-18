@@ -51,7 +51,7 @@
         <ul class="nav pull-right">
             <li class="{% active request "^/$" %}"><a href="/"><i class="icon-home"></i> Home</a></li>
         {% if user.is_authenticated %}
-            <li class="{% active request "^/academics/" %}"><a href="#contact"><i class="icon-book"></i> Academics</a></li>
+        <li class="{% active request "^/academics/" %}"><a href="{% url 'performance_home' %}"><i class="icon-book"></i> Academics</a></li>
             <li class="{% active request "^/mentor-system/" %}"><a href="#about"><i class="icon-map-marker"></i> Mentor System</a></li>
             <li class="{% active request "^/school/" %} dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i> School <b class="caret"></b></a>

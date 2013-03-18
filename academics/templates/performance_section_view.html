@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load tags %}
+
+{% block head_title %}Performance - Academics{% endblock %}
+
+{% block page_title %}{{ section_to_show.section }}{% endblock %}
+{% block page_subtitle %}{{ section_to_show.subject }}{% endblock %}
+
+{% block content %}
+<ul class="nav nav-tabs">
+    {% for faculty_assign in faculty_assigns %}
+    <li><a href="/academics/performance/{{ faculty_assign.id }}/">{{ faculty_assign.section }}</a></li>
+    {% endfor %}
+</ul>
+<div class="row">
+    <div class="span10 offset1">
+        <ul class="unstyled">
+            {% for performance in performances %}
+            <li>{{ performance.student }} - {{ performance.subject }} - {{ performance.attendance }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

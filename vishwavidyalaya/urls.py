@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^accounts/profile/$', ProfileView.as_view(), name='user_profile'),
     #url(r'^mentee/', include('mentors.urls')),
     url(r'^profiles/', include('profiles.urls')),
-    #url(r'^academics/', include('academics.urls')),
+    url(r'^academics/', include('academics.urls')),
     #url(r'^news/', include('news.urls')),
 
 )
