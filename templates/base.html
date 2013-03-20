@@ -65,8 +65,9 @@
                     {% if is_director %}
                     <li><a href="{% url 'dept_create' %}"><i class="icon-briefcase"></i> Department</a></li>
                     {% endif %}
-                    <li><a href="{% url 'dept_create' %}"><i class="icon-tag"></i> Course</a></li>
-                    <li><a href="{% url 'dept_create' %}"><i class="icon-book"></i> Subject</a></li>
+                    <li><a href="{% url 'course_create' %}"><i class="icon-tag"></i> Course</a></li>
+                    <li><a href="{% url 'section_create' %}"><i class="icon-book"></i> Section</a></li>
+                    <li><a href="{% url 'subject_create' %}"><i class="icon-book"></i> Subject</a></li>
                 {% endif %}
                 </ul>
             </li>
